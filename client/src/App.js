@@ -3,11 +3,11 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {createStructuredSelector } from 'reselect';
 
-import './App.css';
 import Home from './pages/homepage/Home';
 import CheckoutPage from './pages/checkout/checkout';
 import ShopPage from './pages/shoppage/shop';
 import Header from './components/header/header';
+import {GlobalStyle} from './global.styles';
 import SignInSignUp from './pages/signIn-signUp/signIn-signUp';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 //import {addCollectionAndDocuments} from './firebase/firebase.utils'; to move the data collecton to firebase
@@ -49,13 +49,14 @@ class App extends React.Component{
    render(){
       return (
         <div >
-          <Header />
-          <Switch>
-            <Route exact path= '/' component={Home} />
-            <Route  path ='/shop' component={ShopPage} />
-            <Route exact path='/checkout' component={CheckoutPage} />
-            <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInSignUp/>)} />
-          </Switch>
+          <GlobalStyle/>
+            <Header />
+            <Switch>
+              <Route exact path= '/' component={Home} />
+              <Route  path ='/shop' component={ShopPage} />
+              <Route exact path='/checkout' component={CheckoutPage} />
+              <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInSignUp/>)} />
+            </Switch>
           
         </div>
       );
