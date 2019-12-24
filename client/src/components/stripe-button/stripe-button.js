@@ -9,19 +9,19 @@ const StripeCheckoutButton = ({price}) => {
 
     
     const onToken = token => {
-       // console.log(token);
-       // alert('Payment was successful!');
+      
         axios({
-       url: 'payment',
+            url: 'payment',
             method: 'post',
             data:{
                 amount: priceForStripe,
                 token
             }
-       }).then(response => {
-            alert('Payment successful')
+       })
+       .then(response => {
+            alert('Payment successful');
         }).catch( error => {
-          console.log('Payment error:', JSON.parse(error));
+          console.log('Payment error: ', JSON.parse(error));
            alert('There was an issue with your payment.');
        });
     };
