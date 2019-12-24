@@ -1,6 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 
-const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle `
 body{
     padding: 28px 60px;
     font-family: 'Open Sans Condensed';
